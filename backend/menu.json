@@ -1,0 +1,134 @@
+[
+    {
+        "name": "Cheese Pizza",
+        "speciality": "Classic cheese pizza with mozzarella and tomato sauce",
+        "price": 749.25,
+        "category": "Pizza"
+    },
+    {
+        "name": "Pepperoni Pizza",
+        "speciality": "Pepperoni, mozzarella, and tomato sauce",
+        "price": 899.25,
+        "category": "Pizza"
+    },
+    {
+        "name": "Veggie Pizza",
+        "speciality": "Bell peppers, onions, mushrooms, olives, and mozzarella",
+        "price": 824.25,
+        "category": "Pizza"
+    },
+    {
+        "name": "BBQ Chicken Pizza",
+        "speciality": "BBQ sauce, grilled chicken, red onions, and cilantro",
+        "price": 974.25,
+        "category": "Pizza"
+    },
+    {
+        "name": "Margherita Pizza",
+        "speciality": "Fresh mozzarella, tomatoes, and basil",
+        "price": 786.75,
+        "category": "Pizza"
+    },
+    {
+        "name": "Caesar Salad",
+        "speciality": "Romaine lettuce, Caesar dressing, croutons, and Parmesan cheese",
+        "price": 599.25,
+        "category": "Salad"
+    },
+    {
+        "name": "Chicken Salad",
+        "speciality": "Grilled chicken, mixed greens, cherry tomatoes, cucumbers, and vinaigrette",
+        "price": 674.25,
+        "category": "Salad"
+    },
+    {
+        "name": "Greek Salad",
+        "speciality": "Mixed greens, feta cheese, olives, cucumbers, and Greek dressing",
+        "price": 636.75,
+        "category": "Salad"
+    },
+    {
+        "name": "Spaghetti Bolognese",
+        "speciality": "Spaghetti pasta with a rich, meaty tomato sauce",
+        "price": 974.25,
+        "category": "Pasta"
+    },
+    {
+        "name": "Fettuccine Alfredo",
+        "speciality": "Fettuccine pasta with creamy Alfredo sauce",
+        "price": 899.25,
+        "category": "Pasta"
+    },
+    {
+        "name": "Penne Arrabbiata",
+        "speciality": "Penne pasta in a spicy tomato sauce",
+        "price": 824.25,
+        "category": "Pasta"
+    },
+    {
+        "name": "Lasagna",
+        "speciality": "Layers of pasta, cheese, and meat sauce",
+        "price": 1049.25,
+        "category": "Pasta"
+    },
+    {
+        "name": "Garlic Bread",
+        "speciality": "Toasted bread with garlic butter and herbs",
+        "price": 374.25,
+        "category": "Appetizer"
+    },
+    {
+        "name": "Mozzarella Sticks",
+        "speciality": "Fried mozzarella sticks with marinara sauce",
+        "price": 449.25,
+        "category": "Appetizer"
+    },
+    {
+        "name": "Bruschetta",
+        "speciality": "Toasted bread topped with diced tomatoes, basil, and olive oil",
+        "price": 486.75,
+        "category": "Appetizer"
+    },
+    {
+        "name": "Chicken Wings",
+        "speciality": "Spicy chicken wings served with ranch dressing",
+        "price": 674.25,
+        "category": "Appetizer"
+    },
+    {
+        "name": "Chocolate Cake",
+        "speciality": "Rich chocolate cake with chocolate frosting",
+        "price": 524.25,
+        "category": "Dessert"
+    },
+    {
+        "name": "Cheesecake",
+        "speciality": "Creamy cheesecake with a graham cracker crust",
+        "price": 599.25,
+        "category": "Dessert"
+    },
+    {
+        "name": "Tiramisu",
+        "speciality": "Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cheese",
+        "price": 636.75,
+        "category": "Dessert"
+    },
+    {
+        "name": "Ice Cream Sundae",
+        "speciality": "Vanilla ice cream topped with chocolate sauce, nuts, and a cherry",
+        "price": 449.25,
+        "category": "Dessert"
+    },
+    {
+        "name": "Lemonade",
+        "speciality": "Freshly squeezed lemonade",
+        "price": 224.25,
+        "category": "Beverage"
+    },
+    {
+        "name": "Iced Tea",
+        "speciality": "Chilled tea served with lemon",
+        "price": 186.75,
+        "category": "Beverage"
+    }
+]
