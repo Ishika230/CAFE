@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-// Define the Menu Item Schema
-const menuItems = new mongoose.Schema({
+const menuItemSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -12,20 +11,37 @@ const menuItems = new mongoose.Schema({
         required: true,
         trim: true
     },
+    sizes: [{
+        size: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        price: {
+            type: Number,
+            required: true,
+            min: 0
+        }
+    }],
     price: {
         type: Number,
-        required: true,
+        required: function() {
+            return !this.sizes || this.sizes.length === 0; //supports both fixed-price items and items with variable sizes and prices.
+        },
         min: 0
+    },
+    description: {
+        type: String,
+        trim: true,
+        required: false
     },
     category: {
         type: String,
         required: true,
         trim: true
-    },
-    
+    }
 }, { timestamps: true });
 
-// Create and export the Menu Item Model
-const MenuItem = mongoose.model('MenuItem', menuItems);
+const MenuItem = mongoose.model('MenuItem', menuItemSchema);
 
 module.exports = MenuItem;

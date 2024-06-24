@@ -2,31 +2,96 @@
     {
         "name": "Cheese Pizza",
         "speciality": "Classic cheese pizza with mozzarella and tomato sauce",
-        "price": 749.25,
-        "category": "Pizza"
-    },
-    {
-        "name": "Pepperoni Pizza",
-        "speciality": "Pepperoni, mozzarella, and tomato sauce",
-        "price": 899.25,
+        "sizes": [
+            {
+                "size": "Small",
+                "price": 299.25
+            },
+            {
+                "size": "Medium",
+                "price": 499.25
+            },
+            {
+                "size": "Large",
+                "price": 699.25
+            }
+        ],
         "category": "Pizza"
     },
     {
         "name": "Veggie Pizza",
         "speciality": "Bell peppers, onions, mushrooms, olives, and mozzarella",
-        "price": 824.25,
-        "category": "Pizza"
-    },
-    {
-        "name": "BBQ Chicken Pizza",
-        "speciality": "BBQ sauce, grilled chicken, red onions, and cilantro",
-        "price": 974.25,
+        "sizes": [
+            {
+                "size": "Small",
+                "price": 324.25
+            },
+            {
+                "size": "Medium",
+                "price": 524.25
+            },
+            {
+                "size": "Large",
+                "price": 724.25
+            }
+        ],
         "category": "Pizza"
     },
     {
         "name": "Margherita Pizza",
         "speciality": "Fresh mozzarella, tomatoes, and basil",
-        "price": 786.75,
+        "sizes": [
+            {
+                "size": "Small",
+                "price": 336.75
+            },
+            {
+                "size": "Medium",
+                "price": 536.75
+            },
+            {
+                "size": "Large",
+                "price": 736.75
+            }
+        ],
+        "category": "Pizza"
+    },
+    {
+        "name": "Veggie Supreme Pizza",
+        "speciality": "Tomatoes, bell peppers, onions, olives, mushrooms, and mozzarella",
+        "sizes": [
+            {
+                "size": "Small",
+                "price": 349.25
+            },
+            {
+                "size": "Medium",
+                "price": 549.25
+            },
+            {
+                "size": "Large",
+                "price": 749.25
+            }
+        ],
+        "category": "Pizza"
+    },
+    {
+        "name": "Paneer Tikka Pizza",
+        "speciality": "Paneer tikka, bell peppers, onions, and mozzarella",
+        "sizes": [
+            {
+                "size": "Small",
+                "price": 374.25
+            },
+            {
+                "size": "Medium",
+                "price": 574.25
+            },
+            {
+                "size": "Large",
+                "price": 774.25
+            }
+        ],
         "category": "Pizza"
     },
     {
@@ -36,27 +101,21 @@
         "category": "Salad"
     },
     {
-        "name": "Chicken Salad",
-        "speciality": "Grilled chicken, mixed greens, cherry tomatoes, cucumbers, and vinaigrette",
-        "price": 674.25,
-        "category": "Salad"
-    },
-    {
         "name": "Greek Salad",
         "speciality": "Mixed greens, feta cheese, olives, cucumbers, and Greek dressing",
         "price": 636.75,
         "category": "Salad"
     },
     {
-        "name": "Spaghetti Bolognese",
-        "speciality": "Spaghetti pasta with a rich, meaty tomato sauce",
-        "price": 974.25,
-        "category": "Pasta"
+        "name": "Garden Salad",
+        "speciality": "Mixed greens, tomatoes, cucumbers, carrots, and vinaigrette",
+        "price": 524.25,
+        "category": "Salad"
     },
     {
-        "name": "Fettuccine Alfredo",
-        "speciality": "Fettuccine pasta with creamy Alfredo sauce",
-        "price": 899.25,
+        "name": "Spaghetti Aglio e Olio",
+        "speciality": "Spaghetti pasta with garlic, olive oil, and chili flakes",
+        "price": 749.25,
         "category": "Pasta"
     },
     {
@@ -67,7 +126,7 @@
     },
     {
         "name": "Lasagna",
-        "speciality": "Layers of pasta, cheese, and meat sauce",
+        "speciality": "Layers of pasta, cheese, and marinara sauce",
         "price": 1049.25,
         "category": "Pasta"
     },
@@ -90,9 +149,9 @@
         "category": "Appetizer"
     },
     {
-        "name": "Chicken Wings",
-        "speciality": "Spicy chicken wings served with ranch dressing",
-        "price": 674.25,
+        "name": "Caprese Salad",
+        "speciality": "Tomatoes, fresh mozzarella, basil, and balsamic glaze",
+        "price": 549.25,
         "category": "Appetizer"
     },
     {
@@ -122,13 +181,77 @@
     {
         "name": "Lemonade",
         "speciality": "Freshly squeezed lemonade",
-        "price": 224.25,
+        "sizes": [
+            {
+                "size": "Small",
+                "price": 124.25
+            },
+            {
+                "size": "Medium",
+                "price": 174.25
+            },
+            {
+                "size": "Large",
+                "price": 224.25
+            }
+        ],
         "category": "Beverage"
     },
     {
         "name": "Iced Tea",
         "speciality": "Chilled tea served with lemon",
-        "price": 186.75,
+        "sizes": [
+            {
+                "size": "Small",
+                "price": 106.75
+            },
+            {
+                "size": "Medium",
+                "price": 146.75
+            },
+            {
+                "size": "Large",
+                "price": 186.75
+            }
+        ],
+        "category": "Beverage"
+    },
+    {
+        "name": "Cappuccino",
+        "speciality": "Espresso with steamed milk and milk foam",
+        "sizes": [
+            {
+                "size": "Small",
+                "price": 149.25
+            },
+            {
+                "size": "Medium",
+                "price": 199.25
+            },
+            {
+                "size": "Large",
+                "price": 249.25
+            }
+        ],
+        "category": "Beverage"
+    },
+    {
+        "name": "Latte",
+        "speciality": "Espresso with steamed milk",
+        "sizes": [
+            {
+                "size": "Small",
+                "price": 149.25
+            },
+            {
+                "size": "Medium",
+                "price": 199.25
+            },
+            {
+                "size": "Large",
+                "price": 249.25
+            }
+        ],
         "category": "Beverage"
     }
 ]

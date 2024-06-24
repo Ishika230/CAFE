@@ -44,8 +44,8 @@ const menuController = {
     // Update a menu item by ID
     updateMenuItem : async (req, res) => {
         try {
-            const { name, description, price, category} = req.body;
-            const updatedItem = await MenuItem.findByIdAndUpdate(req.params.id, { name, description, price, category}, { new: true });
+            const { name, speciality, sizes, price, description, category} = req.body;
+            const updatedItem = await MenuItem.findByIdAndUpdate(req.params.id, { name, speciality, sizes, price, description, category}, { new: true });
             if (!updatedItem) return res.status(404).json({ message: 'Menu item not found' });
             res.status(200).json({ message: 'Menu item updated successfully', item: updatedItem });
         } catch (err) {
