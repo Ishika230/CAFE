@@ -1,0 +1,46 @@
+
+Weekly Sales Report (Sat Jun 29 2024 to Sat Jul 06 2024)
+-------------------
+Total Sales: $47825.00
+Highest Selling Item: Tiramisu (20 orders, $12765.00)
+Lowest Selling Item: Bruschetta (1 order, $648.50)
+Best Rated Item: Cappuccino (4.80 rating)
+Worst Rated Item: Lasagna (3.00 rating)
+
+Category Reports:
+
+Category: Pizza
+Best Sold Item: Cheese Pizza (18 orders, $2145.00)
+Worst Sold Item: Pepperoni Pizza (3 orders, $820.00)
+Best Rated Item: Cheese Pizza (4.50 rating)
+Worst Rated Item: Pepperoni Pizza (3.60 rating)
+
+Category: Beverage
+Best Sold Item: Black Coffee (15 orders, $995.25)
+Worst Sold Item: Cappuccino (3 orders, $447.75)
+Best Rated Item: Cappuccino (4.80 rating)
+Worst Rated Item: Black Coffee (4.00 rating)
+
+Category: Salad
+Best Sold Item: Greek Salad (12 orders, $7124.25)
+Worst Sold Item: Caesar Salad (8 orders, $5284.00)
+Best Rated Item: Greek Salad (4.50 rating)
+Worst Rated Item: Caesar Salad (3.90 rating)
+
+Category: Pasta
+Best Sold Item: Penne Arrabbiata (10 orders, $6573.00)
+Worst Sold Item: Spaghetti Carbonara (2 orders, $1100.00)
+Best Rated Item: Penne Arrabbiata (4.30 rating)
+Worst Rated Item: Lasagna (3.00 rating)
+
+Category: Appetizer
+Best Sold Item: Garlic Bread (10 orders, $3855.00)
+Worst Sold Item: Bruschetta (1 order, $648.50)
+Best Rated Item: Garlic Bread (4.50 rating)
+Worst Rated Item: Mozzarella Sticks (3.50 rating)
+
+Category: Dessert
+Best Sold Item: Tiramisu (20 orders, $12765.00)
+Worst Sold Item: Ice Cream Sundae (5 orders, $2246.25)
+Best Rated Item: Tiramisu (4.60 rating)
+Worst Rated Item: Ice Cream Sundae (3.20 rating)

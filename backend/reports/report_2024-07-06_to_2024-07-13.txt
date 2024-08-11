@@ -1,0 +1,46 @@
+
+Weekly Sales Report (Sat Jul 06 2024 to Sat Jul 13 2024)
+-------------------
+Total Sales: $51025.75
+Highest Selling Item: Caesar Salad (20 orders, $11988.50)
+Lowest Selling Item: Tiramisu (3 orders, $1959.00)
+Best Rated Item: Margherita Pizza (4.80 rating)
+Worst Rated Item: Ice Cream Sundae (3.00 rating)
+
+Category Reports:
+
+Category: Pizza
+Best Sold Item: Pepperoni Pizza (22 orders, $3121.50)
+Worst Sold Item: Veggie Pizza (4 orders, $1297.00)
+Best Rated Item: Margherita Pizza (4.80 rating)
+Worst Rated Item: Veggie Pizza (3.60 rating)
+
+Category: Beverage
+Best Sold Item: Cappuccino (15 orders, $2232.75)
+Worst Sold Item: Latte (5 orders, $820.25)
+Best Rated Item: Cappuccino (4.50 rating)
+Worst Rated Item: Latte (3.80 rating)
+
+Category: Salad
+Best Sold Item: Caesar Salad (20 orders, $11988.50)
+Worst Sold Item: Greek Salad (10 orders, $6236.75)
+Best Rated Item: Caesar Salad (4.60 rating)
+Worst Rated Item: Greek Salad (3.90 rating)
+
+Category: Pasta
+Best Sold Item: Lasagna (7 orders, $3123.75)
+Worst Sold Item: Penne Arrabbiata (2 orders, $1399.50)
+Best Rated Item: Lasagna (4.30 rating)
+Worst Rated Item: Penne Arrabbiata (3.50 rating)
+
+Category: Appetizer
+Best Sold Item: Bruschetta (12 orders, $5841.50)
+Worst Sold Item: Mozzarella Sticks (3 orders, $944.25)
+Best Rated Item: Bruschetta (4.70 rating)
+Worst Rated Item: Mozzarella Sticks (3.60 rating)
+
+Category: Dessert
+Best Sold Item: Cheesecake (8 orders, $2694.00)
+Worst Sold Item: Tiramisu (3 orders, $1959.00)
+Best Rated Item: Cheesecake (4.60 rating)
+Worst Rated Item: Ice Cream Sundae (3.00 rating)

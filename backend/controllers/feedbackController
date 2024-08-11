@@ -1,15 +1,146 @@
 const Feedback = require('../models/feedbackModel');
+const MenuItem = require('../models/menuModel');
+const Order = require("../models/orderModel");
+
+const wordDictionary = {
+  5: ["awesome", "amazing", "fantastic", "wonderful", "perfect", "excellent", "great", "outstanding", "superb", "incredible"],
+  4: ["very good", "really good", "impressive", "nice", "lovely", "enjoyable", "remarkable", "admirable", "delightful", "pleasing"],
+  3: ["good", "fine", "okay", "decent", "not bad", "likeable", "satisfying", "fair", "worthwhile", "positive", "so so"],
+  2: ["not good", "poor", "disappointing", "unpleasant", "unsatisfactory", "mediocre", "inferior", "lame", "crummy", "unappealing"],
+  1: ["terrible", "awful", "horrible", "bad", "dreadful", "pathetic", "disgusting", "miserable", "horrific", "appalling"]
+};
+
+const menuKeywords= ["coffee", "pizza", "sandwich", "salad", "pasta", "dessert", "beverage", "lasagna", "cake", "tea", "sundae", "tiramisu", "lemonade"];
+
+// const findItem = (feedback) =>{
+//   const normalizedFeedback = feedback.toLowerCase();
+//   for (const item in menuKeywords) {
+//     for (const keyword of menuKeywords[item]) {
+//         if (normalizedFeedback.includes(keyword)) {
+          
+// }
+const analyzeFeedback = (feedback) => {
+  let scoreSum = 0;
+  let wordCount = 0;
+
+  // Split feedback into words
+  const words = feedback.toLowerCase().split(/\s+/);
+
+  // Assign scores based on word sentiment
+  for (const word of words) {
+      for (const [score, sentimentWords] of Object.entries(wordDictionary)) {
+          if (sentimentWords.includes(word)) {
+              scoreSum += parseInt(score);
+              wordCount += 1;
+          }
+      }
+  }
+
+  // Calculate average score
+  const averageScore = wordCount ? (scoreSum / wordCount) : null;
+
+  return averageScore;
+};
+
+
 const feedbackController = {
-    submitFeedback: async(req, res) => {
-       try{
-        const {phone, name, feedback, rating, feedback_time} = req.body;
-        const newFeedback = new Feedback({phone, name, feedback, rating, feedback_time});
-        await newFeedback.save();
-        res.status(201).json({message: 'Feedback submitted successfully'});
-       }catch(err){
-        res.status(500).json({error: err.message});
-       }
-    },
+    submitFeedback: async (req, res) => {
+        try {
+          const { phone, name, feedback, rating } = req.body;
+          if (feedback=='' && rating ==0) {
+            console.log('Bad Request: Missing required fields');
+            return res.status(400).json({ error: 'Bad Request: Feedback or rating is required.' });
+          }
+
+          else if(feedback!="") {
+            let orderedItems = [];
+            let item = null;
+            const normalizedFeedback = feedback.toLowerCase();
+            let newFeedback={};
+            for (let i=0; i<menuKeywords.length; i++) {
+              let keyword = menuKeywords[i];
+                  if (normalizedFeedback.includes(keyword)) {
+                      console.log(keyword);
+                      const latestOrder = await Order.findOne({ 'customer.phone': phone }).sort({ createdAt: -1 });
+                      console.log(latestOrder);  
+                      if (!latestOrder) {
+                        return res.status(400).json({ error: 'Bad Request: No recent order found for this customer' });
+                      }
+                        item = latestOrder.items.find(item => {
+                        console.log(`Checking item: ${item.name}`); // Log item being checked
+                        const found = item.name.toLowerCase().includes(keyword) || item.category.toLowerCase().includes(keyword);
+                        console.log(`Found match: ${found}`); // Log if match is found
+                        return found;
+                    });
+                      if (item !== null) {
+                        orderedItems.push(item.name);
+                        
+                      }
+                  }
+               }
+              if(rating==0){
+                const sent_score=analyzeFeedback(feedback);
+                newFeedback = new Feedback({ phone, name, feedback, rating: sent_score, menu_items: orderedItems});
+                await newFeedback.save();
+              }     
+              else{
+                console.log("hello");
+                newFeedback = new Feedback({ phone, name, feedback, rating, menu_items: orderedItems});
+                console.log(newFeedback);
+                try{
+                  await newFeedback.save();
+                }catch(e){
+                  console.log(e);
+                }
+              }
+              res.status(201).json({ message: 'Feedback created successfully', feedback: newFeedback });
+          }
+          else if(feedback=="" && rating!=0){
+            const latestOrder = await Order.findOne({ 'customer.phone': phone }).sort({ createdAt: -1 });
+            if (!latestOrder) {
+              return res.status(400).json({ error: 'Bad Request: No recent order found for this customer' });
+            }
+            const orders = [];
+            for(let i=0; i<latestOrder.items.length; i++){
+              orders.push(latestOrder.items[i].name);
+            }
+            console.log(orders);
+            newFeedback = new Feedback({ phone, name, feedback, rating, menu_items: orders});
+            await newFeedback.save();
+            res.status(201).json({ message: 'Feedback created successfully', feedback: newFeedback });
+          }
+        } catch (err) {
+          res.status(500).json({ error: err.message });
+        }
+      },
+
+    getFeedbackByShortName: async (req, res) => {
+        try {
+          const { shortName } = req.params;
+
+          const feedbacks_sp = await Feedback.find({menu_item: shortName });
+          res.status(200).json(feedbacks_sp);
+        } catch (err) {
+          res.status(500).json({ error: err.message });
+        }
+      }, 
+
+    getAllFeedbacks: async (req, res) => {
+        try {
+          // Fetch all feedbacks
+          const allFeedbacks = await Feedback.find();
+      
+          // If no feedbacks found, return appropriate message
+          if (!allFeedbacks || allFeedbacks.length === 0) {
+            return res.status(404).json({ message: 'No feedbacks found' });
+          }
+      
+          res.status(200).json(allFeedbacks);
+        } catch (err) {
+          res.status(500).json({ error: err.message });
+        }
+      }
+
 
 }
 module.exports = feedbackController;

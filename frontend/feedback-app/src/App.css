@@ -1,0 +1,92 @@
+/* src/FeedbackForm.css */
+.feedback-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  /*background-color: #007bff;*/
+  color: black;
+  background: linear-gradient(300deg, #00bfff,#ef8172);
+
+}
+
+.feedback-form {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #f9f9f9;
+  /*border-width: 5px;*/
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.feedback-form h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+  color: #333;
+}
+
+.feedback-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.feedback-form hr {
+  border: 0;
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+}
+
+.feedback-form div {
+  margin-bottom: 15px;
+}
+
+.feedback-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+.feedback-form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: linear-gradient(300deg, #00bfff,#ef8172);
+  color: white;
+  font-size: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.feedback-form button:hover {
+  background: #00bfff;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+}
+
+.star {
+  font-size: 40px;
+  cursor: pointer;
+  color: gray;
+  transition: color 0.2s;
+}
+
+.star.filled {
+  color: gold;
+}

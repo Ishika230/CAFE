@@ -1,5 +1,9 @@
 const MenuItem = require('../models/menuModel');
 
+const generateShortName = (name) => {
+    return name.toLowerCase().replace(/\s+/g, '_');
+}
+
 // Create a new menu item
 const menuController = {
     createMenuItem: async (req, res) => {
@@ -9,8 +13,11 @@ const menuController = {
                 if (!Array.isArray(menuItems)) {
                     // If req.body is not an array, convert it to an array with a single item
                     menuItems = [menuItems];
-                    console.log("hello")
                 }
+                menuItems = menuItems.map(item => ({
+                    ...item,
+                    shortName: generateShortName(item.name)
+                }));
                 
                 const newItems = await MenuItem.create(menuItems); // Use create method to insert multiple items
                 res.status(201).json({ message: 'Menu items created successfully', items: newItems });
@@ -31,9 +38,11 @@ const menuController = {
     },
 
     // Get a menu item by ID
-    getMenuItemById : async (req, res) => {
+    getMenuItem : async (req, res) => {
         try {
-            const item = await MenuItem.findById(req.params.id);
+            const {shortName} = req.params;
+            console.log(shortName);
+            const item = await MenuItem.findOne({shortName});
             if (!item) return res.status(404).json({ message: 'Menu item not found' });
             res.status(200).json(item);
         } catch (err) {
@@ -44,8 +53,9 @@ const menuController = {
     // Update a menu item by ID
     updateMenuItem : async (req, res) => {
         try {
-            const { name, speciality, sizes, price, description, category} = req.body;
-            const updatedItem = await MenuItem.findByIdAndUpdate(req.params.id, { name, speciality, sizes, price, description, category}, { new: true });
+            const {shortName} = req.params;
+            const updates = req.body;
+            const updatedItem = await MenuItem.findOneAndUpdate({shortName}, { $set: updates }, { new: true });
             if (!updatedItem) return res.status(404).json({ message: 'Menu item not found' });
             res.status(200).json({ message: 'Menu item updated successfully', item: updatedItem });
         } catch (err) {
@@ -56,7 +66,8 @@ const menuController = {
     // Delete a menu item by ID
     deleteMenuItem : async (req, res) => {
         try {
-            const deletedItem = await MenuItem.findByIdAndDelete(req.params.id);
+            const {shortName} = req.params;
+            const deletedItem = await MenuItem.findOneAndDelete({shortName});
             if (!deletedItem) return res.status(404).json({ message: 'Menu item not found' });
             res.status(200).json({ message: 'Menu item deleted successfully' });
         } catch (err) {

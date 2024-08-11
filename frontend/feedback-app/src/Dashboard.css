@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.dashboard-container {
+    width: 100%;
+    height: 100vh;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(300deg, #00bfff,#ef8172);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-button{
+    margin-left:10px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-left:10px;
+}
+
+.search-container input[type="date"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+.reports-list {
+    margin-top: 20px;
+}
+
+.report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.report-item button {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.report-item button:hover {
+    background-color: #218838;
+}

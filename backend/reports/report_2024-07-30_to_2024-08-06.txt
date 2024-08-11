@@ -1,0 +1,52 @@
+
+Weekly Sales Report (Tue Jul 30 2024 to Tue Aug 06 2024)
+-------------------
+Total Sales: $55600.75
+Highest Selling Item: Cheese Pizza (31 orders, $4070.25)
+Lowest Selling Item: Spaghetti Aglio e Olio (1 orders, $749.25)
+Best Rated Item: Black Coffee (4.44 rating)
+Worst Rated Item: Cheese Pizza (3.50 rating)
+
+Category Reports:
+
+Category: Dessert
+Best Sold Item: Tiramisu (7 orders, $4457.25)
+Worst Sold Item: Ice Cream Sundae (1 orders, $449.25)
+Best Rated Item: undefined (0 rating)
+Worst Rated Item: undefined (Infinity rating)
+
+
+Category: Pizza
+Best Sold Item: Cheese Pizza (31 orders, $4070.25)
+Worst Sold Item: Veggie Pizza (2 orders, $648.50)
+Best Rated Item: Cheese Pizza (3.50 rating)
+Worst Rated Item: Cheese Pizza (3.50 rating)
+
+
+Category: Salad
+Best Sold Item: Greek Salad (10 orders, $6367.50)
+Worst Sold Item: Caesar Salad (9 orders, $5393.25)
+Best Rated Item: undefined (0 rating)
+Worst Rated Item: undefined (Infinity rating)
+
+
+Category: Beverage
+Best Sold Item: Black Coffee (13 orders, $687.00)
+Worst Sold Item: Latte (7 orders, $1044.75)
+Best Rated Item: Black Coffee (4.44 rating)
+Worst Rated Item: Black Coffee (4.44 rating)
+
+
+Category: Appetizer
+Best Sold Item: Garlic Bread (8 orders, $2994.00)
+Worst Sold Item: Bruschetta (4 orders, $1947.00)
+Best Rated Item: undefined (0 rating)
+Worst Rated Item: undefined (Infinity rating)
+
+
+Category: Pasta
+Best Sold Item: Penne Arrabbiata (5 orders, $4121.25)
+Worst Sold Item: Spaghetti Aglio e Olio (1 orders, $749.25)
+Best Rated Item: undefined (0 rating)
+Worst Rated Item: undefined (Infinity rating)
+

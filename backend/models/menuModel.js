@@ -6,6 +6,13 @@ const menuItemSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    shortName: {
+        type: String,
+        required: true,
+        index:true,//indexing added for faster searches
+        unique: true,
+        trim: true
+    },
     speciality: {
         type: String,
         required: true,
@@ -26,7 +33,8 @@ const menuItemSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: function() {
-            return !this.sizes || this.sizes.length === 0; //supports both fixed-price items and items with variable sizes and prices.
+            return !this.sizes || this.sizes.length === 0; //REMEMBER: HERE, IF SIZES ARE NOT APPLICABLE, ONLY THEN PRICE COLUMN WILL SHOW
+                                                            //PRICE
         },
         min: 0
     },
