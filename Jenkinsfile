@@ -10,9 +10,23 @@ pipeline {
     }
 
     stages {
+        stage('Setup Node.js') {
+            steps {
+                echo 'Installing Node.js and npm...'
+                sh '''
+                apt-get update
+                curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+                apt-get install -y nodejs
+                node --version
+                npm --version
+                '''
+            }
+        }
+
         stage('Pull Code') {
             steps {
                 echo 'Pulling code from GitHub...'
+                sh "git clone ${REPO_URL} . || git pull" // Clone or pull latest code
             }
         }
 
