@@ -29,9 +29,11 @@ pipeline {
             steps {
                 echo 'Installing frontend dependencies...'
                 dir('frontend/feedback-app') {
-                    // Run npm install inside a Node.js Docker container
-                    docker.image('node:18').inside {
-                        sh 'npm install'  // Runs npm install for frontend
+                    script {
+                        // Run npm install inside a Node.js Docker container
+                        docker.image('node:18').inside {
+                            sh 'npm install'  // Runs npm install for frontend
+                        }
                     }
                 }
             }
@@ -41,9 +43,11 @@ pipeline {
             steps {
                 echo 'Installing backend dependencies...'
                 dir('backend') {
-                    // Run npm install inside a Node.js Docker container
-                    docker.image('node:18').inside {
-                        sh 'npm install'  // Runs npm install for backend
+                    script {
+                        // Run npm install inside a Node.js Docker container
+                        docker.image('node:18').inside {
+                            sh 'npm install'  // Runs npm install for backend
+                        }
                     }
                 }
             }
@@ -52,18 +56,23 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 echo 'Running unit tests...'
-                // Run unit tests inside a Node.js Docker container
-                docker.image('node:18').inside {
-                    sh 'npm test || echo "Tests failed, but continuing..."'
+                script {
+                    // Run unit tests inside a Node.js Docker container
+                    docker.image('node:18').inside {
+                        sh 'npm test || echo "Tests failed, but continuing..."'
+                    }
                 }
             }
         }
 
+        
         stage('Build Frontend Docker Image') {
             steps {
                 echo 'Building Docker image for frontend...'
                 dir('frontend/feedback-app') {
-                    docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
+                    script {
+                        docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
+                    }
                 }
             }
         }
@@ -72,10 +81,13 @@ pipeline {
             steps {
                 echo 'Building Docker image for backend...'
                 dir('backend') {
-                    docker.build("${BACKEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
+                    script {
+                        docker.build("${BACKEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
+                    }
                 }
             }
         }
+
 
         stage('Push Docker Images') {
             steps {
