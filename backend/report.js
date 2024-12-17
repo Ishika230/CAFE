@@ -16,13 +16,13 @@ const Feedback = require('./models/feedbackModel');
 async function generateReport() {
     try {
         // Fetch data from MongoDB
-        const start=performance.now();
+        //const start=performance.now();
         const orders = await Order.find({ paymentStatus: "Completed" }).exec();
         const feedbacks = await Feedback.find().exec();
 
         const report = generateSalesReport(orders, feedbacks);
         writeReportToFile(report);
-        const end=performance.now();
+        //const end=performance.now();
         console.log(`Time taken (single core): ${(end - start) / 1000} seconds`);
     } catch (error) {
         console.error('Error generating report', error);

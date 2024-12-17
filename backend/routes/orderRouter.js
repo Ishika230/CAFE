@@ -1,8 +1,8 @@
 // routes/orderRoutes.js
 const express = require('express');
-const router = express.Router();
+const orderRouter = express.Router();
 const { handleOrderCheckout } = require('../controllers/orderController');
 
-router.post('/', handleOrderCheckout);
+orderRouter.post('/', handleOrderCheckout);
 
-module.exports = router;
+module.exports = orderRouter;

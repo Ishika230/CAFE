@@ -84,7 +84,6 @@ const feedbackController = {
                 await newFeedback.save();
               }     
               else{
-                console.log("hello");
                 newFeedback = new Feedback({ phone, name, feedback, rating, menu_items: orderedItems});
                 console.log(newFeedback);
                 try{

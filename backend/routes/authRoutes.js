@@ -8,7 +8,7 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 router.get('/google/callback', 
     passport.authenticate('google', { failureRedirect: '/' }),
     (req, res) => {
-        res.redirect('/menu/items');
+        res.redirect('/');
     });
 
 router.get('/logout', (req, res) => {

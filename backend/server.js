@@ -9,7 +9,6 @@ const Feedback = require('./models/feedbackModel');
 const Order = require('./models/orderModel');
 require('dotenv').config();
 const app = express();
-const PORT = 5000;
 const passport = require('passport');
 const session = require('express-session');
 const cors = require('cors');   
@@ -45,7 +44,9 @@ app.use('/feedback', feedbackrouter);
 app.use('/menu', isAuthenticated, isAdmin, menuRouter);
 app.use('/orders', orderRoutes);
 app.use('/reports', reportRoutes);//serve static report files from the reports directory.
-
+app.listen(5000, () => {
+    console.log(`Server is running on port 5000`);
+});
 // if (cluster.isMaster) {
 //     // Master process code
 //     require('./report');
@@ -63,20 +64,22 @@ app.use('/reports', reportRoutes);//serve static report files from the reports d
 // } else {
 //     // Worker process code
 
-    app.listen(PORT, () =>{
-        console.log(`started and server is running on port ${PORT}`);
-    });
-//};
+//     app.listen(PORT, () =>{
+//         console.log(`started and server is running on port ${PORT}`);
+//     });
+// //};
 
 
 
+console.log(process.env.MONGO_ADRESS);
+console.log("welcome to backend");
+const URI = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_ADDRESS || 'localhost'}:27017/appdb?authSource=admin`;
 
-const URI = process.env.MONGO_URL;
 mongoose.connect(URI).then(()=>{
     console.log("connected to mongodb");
 }).catch(err=>{
     console.log(err);
-})// })then(()=>initializeOrders());//1.then(()=>initializeMENU()).then(()=>initializeFEEDBACK());
+}).then(()=>initializeOrders()).then(()=>initializeMENU()).then(()=>initializeFEEDBACK());
 
 
 const menuFilePath = path.join(__dirname, 'menu.json');//reading items from menu.json and uploading to db
