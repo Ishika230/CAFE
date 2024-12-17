@@ -13,12 +13,6 @@ pipeline {
         stage('Pull Code') {
             steps {
                 echo 'Pulling code from GitHub...'
-                script {
-                    // Using username and token directly from Jenkins' credentials system
-                    sh """
-                        git clone https://${GITHUB_CREDENTIALS_USR}:${GITHUB_CREDENTIALS_PSW}@${REPO_URL} .
-                    """
-                }
             }
         }
 
