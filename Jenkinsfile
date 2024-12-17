@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
-        GITHUB_TOKEN = credentials('github-token')  // Reference GitHub Token from Jenkins Credentials
+        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials') // DockerHub credentials
+        GITHUB_CREDENTIALS = credentials('github-token')  // Reference GitHub Token from Jenkins Credentials
         FRONTEND_IMAGE_NAME = 'ishika2307/my-react-app'
         BACKEND_IMAGE_NAME = 'ishika2307/my-cafe-backend'
         REPO_URL = 'https://github.com/ishika230/cafe.git'  // Your GitHub repository URL
@@ -13,9 +13,12 @@ pipeline {
         stage('Pull Code') {
             steps {
                 echo 'Pulling code from GitHub...'
-                sh """
-                    git clone https://oauth2:${GITHUB_TOKEN}@github.com/username/repo-name.git .
-                """
+                script {
+                    // Using username and token directly from Jenkins' credentials system
+                    sh """
+                        git clone https://${GITHUB_CREDENTIALS_USR}:${GITHUB_CREDENTIALS_PSW}@${REPO_URL} .
+                    """
+                }
             }
         }
 
@@ -79,8 +82,6 @@ pipeline {
                 sh "docker push ${BACKEND_IMAGE_NAME}:${env.BUILD_NUMBER}"
             }
         }
-
-        
     }
 
     post {
