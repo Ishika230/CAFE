@@ -11,8 +11,10 @@ pipeline {
 
     stages {
         stage('Pull Code') {
+            steps{
+                echo 'Pulling code from GitHub...'
+            }
             
-            echo 'Pulling code from GitHub...'
                 
         }
 
