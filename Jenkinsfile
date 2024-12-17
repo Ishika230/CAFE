@@ -6,7 +6,7 @@ pipeline {
         GITHUB_CREDENTIALS = credentials('github-token')  // Reference GitHub Token from Jenkins Credentials
         FRONTEND_IMAGE_NAME = 'ishika2307/my-react-app'
         BACKEND_IMAGE_NAME = 'ishika2307/my-cafe-backend'
-        REPO_URL = 'https://github.com/ishika230/cafe.git'  // Your GitHub repository URL
+        REPO_URL = 'https://github.com/Ishika230/cafe.git'  // Your GitHub repository URL
     }
 
     stages {
