@@ -10,24 +10,10 @@ pipeline {
     }
 
     stages {
-        stage('Setup Node.js') {
-            steps {
-                echo 'Installing Node.js and npm...'
-                sh '''
-                apt-get update
-                curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-                apt-get install -y nodejs
-                node --version
-                npm --version
-                '''
-            }
-        }
-
         stage('Pull Code') {
-            steps {
-                echo 'Pulling code from GitHub...'
-                sh "git clone ${REPO_URL} . || git pull" // Clone or pull latest code
-            }
+            
+            echo 'Pulling code from GitHub...'
+                
         }
 
         stage('Clean Workspace') {
@@ -41,7 +27,10 @@ pipeline {
             steps {
                 echo 'Installing frontend dependencies...'
                 dir('frontend/feedback-app') {
-                    sh 'npm install'  // Runs npm install for frontend
+                    // Run npm install inside a Node.js Docker container
+                    docker.image('node:18').inside {
+                        sh 'npm install'  // Runs npm install for frontend
+                    }
                 }
             }
         }
@@ -50,7 +39,10 @@ pipeline {
             steps {
                 echo 'Installing backend dependencies...'
                 dir('backend') {
-                    sh 'npm install'  // Runs npm install for backend
+                    // Run npm install inside a Node.js Docker container
+                    docker.image('node:18').inside {
+                        sh 'npm install'  // Runs npm install for backend
+                    }
                 }
             }
         }
@@ -58,7 +50,10 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 echo 'Running unit tests...'
-                sh 'npm test || echo "Tests failed, but continuing..."'
+                // Run unit tests inside a Node.js Docker container
+                docker.image('node:18').inside {
+                    sh 'npm test || echo "Tests failed, but continuing..."'
+                }
             }
         }
 
@@ -66,7 +61,7 @@ pipeline {
             steps {
                 echo 'Building Docker image for frontend...'
                 dir('frontend/feedback-app') {
-                    sh "docker build -t ${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER} ."
+                    docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
                 }
             }
         }
@@ -75,7 +70,7 @@ pipeline {
             steps {
                 echo 'Building Docker image for backend...'
                 dir('backend') {
-                    sh "docker build -t ${BACKEND_IMAGE_NAME}:${env.BUILD_NUMBER} ."
+                    docker.build("${BACKEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
                 }
             }
         }
