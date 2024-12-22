@@ -60,8 +60,11 @@ pipeline {
             steps {
                 echo 'Building Docker image for frontend...'
                 dir('frontend/feedback-app') {
+                    script{
+                        docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
+
+                    }
                     
-                    docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
                 }
             }
         }
