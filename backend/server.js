@@ -72,7 +72,6 @@ app.listen(5000, () => {
 
 
 console.log(process.env.MONGO_ADRESS);
-console.log("welcome to backend");
 const URI = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_ADDRESS || 'localhost'}:27017/appdb?authSource=admin`;
 
 mongoose.connect(URI).then(()=>{

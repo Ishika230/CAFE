@@ -1,0 +1,24 @@
+{
+    "folders": [
+		{
+			"name": "react",
+			"path": ".."
+		},
+		{
+			"name": "web dev projs",
+			"path": "../../web dev projs"
+		},
+		{
+			"name": "bills",
+			"path": "../../../bills"
+		},
+		{
+			"name": "reactjs",
+			"path": "../../web dev projs/reactjs"
+		}
+	],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "web dev projs",
+        "git.ignoreLimitWarning": true
+    }
+}

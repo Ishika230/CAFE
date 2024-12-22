@@ -29,12 +29,8 @@ pipeline {
             steps {
                 echo 'Installing frontend dependencies...'
                 dir('frontend/feedback-app') {
-                    script {
-                        // Run npm install inside a Node.js Docker container
-                        docker.image('node:18').inside {
-                            sh 'npm install'  // Runs npm install for frontend
-                        }
-                    }
+                    
+                    sh 'npm install'  // Runs npm install for frontend
                 }
             }
         }
@@ -43,36 +39,29 @@ pipeline {
             steps {
                 echo 'Installing backend dependencies...'
                 dir('backend') {
-                    script {
-                        // Run npm install inside a Node.js Docker container
-                        docker.image('node:18').inside {
-                            sh 'npm install'  // Runs npm install for backend
-                        }
-                    }
+                    sh 'npm install'  // Runs npm install for backend
                 }
             }
         }
+            
+        
 
         stage('Run Unit Tests') {
             steps {
                 echo 'Running unit tests...'
-                script {
-                    // Run unit tests inside a Node.js Docker container
-                    docker.image('node:18').inside {
-                        sh 'npm test || echo "Tests failed, but continuing..."'
-                    }
+                    sh 'npm test || echo "Tests failed, but continuing..."'
                 }
             }
-        }
+            
+        
 
         
         stage('Build Frontend Docker Image') {
             steps {
                 echo 'Building Docker image for frontend...'
                 dir('frontend/feedback-app') {
-                    script {
-                        docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
-                    }
+                    
+                    docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
                 }
             }
         }
