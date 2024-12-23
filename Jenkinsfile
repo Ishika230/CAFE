@@ -111,10 +111,10 @@ data:
   mongopassword: ${MONGO_INITDB_ROOT_PASSWORD}
 """
                     // Write the secret YAML file to disk
-                    writeFile file: 'mongo-secret.yaml', text: mongoSecretYaml
+                    writeFile file: 'mongodb-secret.yaml', text: mongoSecretYaml
 
                     // Apply the Kubernetes secret
-                    sh 'kubectl apply -f mongo-secret.yaml'
+                    sh 'kubectl apply -f mongodb-secret.yaml'
                     
                     sh 'kubectl apply -f k8s/mongodb-pod.yaml'
                 }
