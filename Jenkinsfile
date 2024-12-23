@@ -10,11 +10,20 @@ pipeline {
         REPO_URL = 'https://github.com/Ishika230/cafe.git'  // Your GitHub repository URL
         MONGO_INITDB_ROOT_USERNAME = credentials('mongo-db-username')  // Reference to the Jenkins secret (MongoDB username)
         MONGO_INITDB_ROOT_PASSWORD = credentials('mongo-db-password')  /
-        IMAGE_TAG = ${env.BUILD_NUMBER}
+        
     }
     
 
     stages {
+        stage('Prepare Image Tag') {
+            steps {
+                script {
+                    // Dynamically set IMAGE_TAG to the build number
+                    env.IMAGE_TAG = "${env.BUILD_NUMBER}"
+                    echo "Using IMAGE_TAG: ${env.IMAGE_TAG}"
+                }
+            }
+        }
         stage('Pull Code') {
             steps{
                 echo 'Pulling code from GitHub...'
