@@ -105,7 +105,7 @@ pipeline {
                 sh "docker push ${BACKEND_IMAGE_NAME}:${env.BUILD_NUMBER}"
             }
         }
-    }
+    
     stage('Generate MongoDB Secret in Kubernetes') {
             steps {
                 echo 'Creating MongoDB secret in Kubernetes dynamically...'
