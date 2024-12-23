@@ -137,6 +137,7 @@ data:
                 sh 'kubectl apply -f frontend-dev.yaml'
             }
         }
+    }
 
 
     post {
@@ -147,5 +148,5 @@ data:
             echo 'Build or deployment failed.'
         }
     }
-}
+
 }
