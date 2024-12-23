@@ -10,7 +10,7 @@ pipeline {
         REPO_URL = 'https://github.com/Ishika230/cafe.git'  // Your GitHub repository URL
         MONGO_INITDB_ROOT_USERNAME = credentials('mongo-db-username')  // Reference to the Jenkins secret (MongoDB username)
         MONGO_INITDB_ROOT_PASSWORD = credentials('mongo-db-password')  /
-        IMAGE_TAG = "${env.BUILD_NUMBER}"
+        IMAGE_TAG = ${env.BUILD_NUMBER}
     }
     
 
