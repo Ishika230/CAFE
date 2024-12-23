@@ -63,9 +63,9 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 echo 'Running unit tests...'
-                    sh 'npm test || echo "Tests failed, but continuing..."'
-                }
+                sh 'npm test || echo "Tests failed, but continuing..."'
             }
+        }
             
         
 
@@ -147,4 +147,5 @@ data:
             echo 'Build or deployment failed.'
         }
     }
+}
 }
