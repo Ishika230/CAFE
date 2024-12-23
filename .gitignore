@@ -2,5 +2,5 @@
 /backend/node_modules
 /frontend/node_modules
 # Ignore environment variables
-/k8s/
+
 .env

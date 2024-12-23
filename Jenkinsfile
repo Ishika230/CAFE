@@ -116,7 +116,7 @@ data:
                     // Apply the Kubernetes secret
                     sh 'kubectl apply -f mongo-secret.yaml'
                     
-                    sh 'kubectl apply -f kubernetes/mongodb-pod.yaml'
+                    sh 'kubectl apply -f k8s/mongodb-pod.yaml'
                 }
             }
         }

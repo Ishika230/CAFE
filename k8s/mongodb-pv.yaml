@@ -1,0 +1,15 @@
+# mongodb-pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-pv
+spec:
+  hostPath:
+    path: /data/mongo
+    type: DirectoryOrCreate
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: standard

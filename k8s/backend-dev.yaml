@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: middleware
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: middleware
+    spec:
+      containers:
+      - name: middleware
+        image: ishika2307/my-cafe-backend:v5
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MONGO_ADDRESS
+          value: "mongodb.default" # <mongo db servicename + . + namespace>
+        - name: MONGO_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-init-creds
+              key: mongouser
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-init-creds
+              key: mongopassword
+  selector:
+    matchLabels: 
+      app: middleware
