@@ -5,9 +5,11 @@ pipeline {
         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials') // DockerHub credentials
         GITHUB_CREDENTIALS = credentials('github-token')  // Reference GitHub Token from Jenkins Credentials
         FRONTEND_IMAGE_NAME = 'ishika2307/my-react-app'
+        JENKINS_API_TOKEN = credentials('jenkins-api-token')
         BACKEND_IMAGE_NAME = 'ishika2307/my-cafe-backend'
         REPO_URL = 'https://github.com/Ishika230/cafe.git'  // Your GitHub repository URL
     }
+    
 
     stages {
         stage('Pull Code') {
@@ -60,11 +62,8 @@ pipeline {
             steps {
                 echo 'Building Docker image for frontend...'
                 dir('frontend/feedback-app') {
-                    script{
-                        docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
-
-                    }
                     
+                    docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
                 }
             }
         }
