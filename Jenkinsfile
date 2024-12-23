@@ -75,11 +75,8 @@ pipeline {
                 echo 'Building Docker image for frontend...'
                 dir('frontend/feedback-app') {
                     script{
-                        docker.image('node:18').inside {
-                           docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
-                        }
                         
-                        
+                        docker.build("${FRONTEND_IMAGE_NAME}:${env.BUILD_NUMBER}", "--no-cache .") 
 
                     }
                     
@@ -92,9 +89,9 @@ pipeline {
                 echo 'Building Docker image for backend...'
                 dir('backend') {
                     script {
-                        docker.image('node:18').inside {
-                           docker.build("${BACKEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
-                        }
+                        
+                        docker.build("${BACKEND_IMAGE_NAME}:${env.BUILD_NUMBER}")
+                        
                     }
                 }
             }
