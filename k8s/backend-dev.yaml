@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: middleware
-        image: ishika2307/my-cafe-backend:1
+        image: ishika2307/my-cafe-backend:v5
         ports:
         - containerPort: 5000
         env:
