@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: frontend-container
-        image: ishika2307/my-react-app:v1  # Replace this with your actual frontend image name
+        image: ishika2307/my-react-app:1 # Replace this with your actual frontend image name
         ports:
         - containerPort: 3000
